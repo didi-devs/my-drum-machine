@@ -114,17 +114,19 @@ const bankTwo = [
   },
 ];
 
-const Keyboard = ({ play }) => {
-  return bankOne.map(sound => {
-    return (
-      <button className="drum-pad" onClick={() => play(sound.keyTrigger)}>
+
+const KeyboardKey = ({ play, sound: {keyTrigger, url} }) => {
+  return (
+    <button className="drum-pad" onClick={() => play(keyTrigger)}>
         <div id="display">
-          <audio id={sound.keyTrigger} className="clip" src={sound.url} />
-          {sound.keyTrigger}
+          <audio id={keyTrigger} className="clip" src={url} />
+          {keyTrigger}
         </div>
       </button>
-    );
-  })
+  )
+}
+const Keyboard = ({ play }) => {
+  return bankOne.map((sound) => <KeyboardKey play={play} sound={sound} />)
 }
 
 function App() {
