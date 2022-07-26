@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.scss';
 
 const bankOne = [
@@ -115,7 +116,19 @@ const bankTwo = [
 ];
 
 
-const KeyboardKey = ({ play, sound: { keyTrigger, url } }) => {
+const KeyboardKey = ({ play, sound: { keyTrigger, url, keyCode } }) => {
+
+
+  const handleKeydown = (event) => {
+    if (event.keyCode === keyCode) {
+      play(keyTrigger)
+  }
+}
+  
+  React.useEffect(() => {
+    document.addEventListener("keydown", handleKeydown)
+  },[] )
+
   return (
     <button className="drum-pad" onClick={() => play(keyTrigger)} >
       <div id="display">
