@@ -117,7 +117,7 @@ const bankTwo = [
 
 const KeyboardKey = ({ play, sound: { keyTrigger, url } }) => {
   return (
-    <button className="drum-pad" onClick={() => play(keyTrigger)}>
+    <button className="drum-pad" onClick={() => play(keyTrigger)} >
       <div id="display">
         <audio id={keyTrigger} className="clip" src={url} />
         {keyTrigger}
