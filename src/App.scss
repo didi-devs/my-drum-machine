@@ -21,15 +21,14 @@
  .drum-pad {
   width: 100%;
   height: 80px;
+  border: none;
   outline: none;
   font-size: 28px;
-  border-radius: 1px;
+  border-radius: 10px;
   background-color: #a1a3a5;
   transition: all -3s ease-in-out; 
   margin: 10px;
-  box-shadow: inset;
-
-  
+  box-shadow: black 3px 3px 5px;
 }
 
 .drum-pad:hover{
@@ -39,25 +38,28 @@
   }
 
 .wrapper {
-  width: auto;
-  height: 20vh;
-  display: grid;
-  // align-items: center;
-  // justify-content: center;
-  padding: 10px;
-  grid-gap: 15px;
-  margin-top: 20px;
-  border-radius: 15px;
-  grid-template-columns: 1fr;
-  background-image: linear-gradient(-255deg, #0b4e7d 35%, #9aa2a9 100%);
+  //  width: auto;
+  //  height: 20vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 10px;
+   grid-gap: 15px;
+   margin-top: 20px;
+   border-radius: 15px;
+   grid-template-columns: 1fr;
+   background-image: linear-gradient(-255deg, #0b4e7d 35%, #9aa2a9 100%);
+   outline: 5px solid rgb(3, 61, 116);
+	 position: relative;
+	 width: 400px;
+   height: 100vh;
 }
-
-.body{
-   margin: 15px;
-   padding: 30px;
+ .body{
    display: flex;
    justify-content: center;
-}
+   align-items: center;
+   height: 100vh
+ }
 
 #volume {
   background-color: #bcbbc5;
