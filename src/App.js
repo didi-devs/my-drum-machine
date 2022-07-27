@@ -125,12 +125,12 @@ const bankTwo = [
    smoothPianoKit: bankTwo
  }
 
-const KeyboardKey = ({ play, sound: { keyTrigger, url, keyCode } }) => {
+const KeyboardKey = ({ play, sound: { id, keyTrigger, url, keyCode } }) => {
 
 
   const handleKeydown = (event) => {
     if (event.keyCode === keyCode) {
-      play(keyTrigger)
+      play(keyTrigger, id)
   }
 }
   
@@ -140,7 +140,7 @@ const KeyboardKey = ({ play, sound: { keyTrigger, url, keyCode } }) => {
 
   return (
     
-    <button className="drum-pad" onClick={() => play(keyTrigger)} >
+    <button className="drum-pad" onClick={() => play(keyTrigger, id)} >
       <div id="display">
         <audio id={keyTrigger} className="clip" src={url} />
         {keyTrigger}
@@ -158,17 +158,19 @@ const Keyboard = ({ play , sounds}) => (
 const DrumControls = ({ name, secondGroup }) => (
   
   <div className="controle">
-    <h2 id='display'>{ name}</h2>
+    <h2 id='display'>{name}</h2>
     <button onClick={secondGroup} id='switch'>Change Sound</button>
     </div>
   
 )
 
 function App() {
+  const [soundsName, setSoundsName] = React.useState("");
    const [soundType, setSoundType] = React.useState("heaterKit");
    const [sounds, setSounds] = React.useState(soundGroup[soundType])
 
-  const play = (keyTrigger) => {
+  const play = (keyTrigger, sound) => {
+    setSoundsName("")
     const audio = document.getElementById(keyTrigger)
     audio.currentTime = 0;
     audio.play()
@@ -186,7 +188,7 @@ function App() {
   return (
     <div className="wrapper" id="drum-machine">
       <Keyboard play={play} sounds={sounds} />
-      <DrumControls secondGroup={secondGroup} />
+      <DrumControls name={soundsName || soundName[soundType]}  secondGroup={secondGroup} />
     </div>
   );
 }
