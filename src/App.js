@@ -158,8 +158,8 @@ const DrumControls = ({ secondGroup }) => (
 )
 
 function App() {
-  const [soundType, setSoundType] = React.useState("heaterKit");
-  const [sounds, setSounds] = React.useState(soundGroup[soundType])
+   const [soundType, setSoundType] = React.useState("heaterKit");
+   const [sounds, setSounds] = React.useState(soundGroup[soundType])
 
   const play = (keyTrigger) => {
     const audio = document.getElementById(keyTrigger)
@@ -168,11 +168,13 @@ function App() {
   } 
   
   const secondGroup = () => {
-      if (soundType === "heaterKit") {
-      setSounds(soundGroup.smoothPianoKit)
-      } else {
-      setSounds(soundGroup.heaterKit)
-     }
+    if (soundType === "heaterKit") {
+       setSoundType("smoothPianoKit")
+       setSounds(soundGroup.smoothPianoKit)
+    } else {
+      setSoundType("heaterKit")
+       setSounds(soundGroup.heaterKit)
+      }
   }
   return (
     <div className="App" id="drum-machine">
