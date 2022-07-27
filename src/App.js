@@ -170,13 +170,14 @@ function App() {
    const [sounds, setSounds] = React.useState(soundGroup[soundType])
 
   const play = (keyTrigger, sound) => {
-    setSoundsName("")
+    setSoundsName(sound)
     const audio = document.getElementById(keyTrigger)
     audio.currentTime = 0;
     audio.play()
   } 
   
   const secondGroup = () => {
+    setSoundsName("")
     if (soundType === "heaterKit") {
        setSoundType("smoothPianoKit")
        setSounds(soundGroup.smoothPianoKit)
@@ -186,9 +187,11 @@ function App() {
       }
   }
   return (
-    <div className="wrapper" id="drum-machine">
+    <div className='body'>
+     <div className="wrapper" id="drum-machine">
       <Keyboard play={play} sounds={sounds} />
       <DrumControls name={soundsName || soundName[soundType]}  secondGroup={secondGroup} />
+      </div>
     </div>
   );
 }
