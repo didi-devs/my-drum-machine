@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
 }
 
@@ -17,3 +17,13 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.wrapper {
+  width: 100%;
+  display: grid;
+  padding: 10px;
+  grid-gap: 15px;
+  margin-top: 40px;
+  border-radius: 15px;
+  grid-template-columns: 1fr;
+  background-image: linear-gradient(-255deg, #755dd5 55%, #b9deff 100%);
+}

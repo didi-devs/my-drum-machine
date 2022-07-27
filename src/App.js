@@ -139,28 +139,28 @@ const KeyboardKey = ({ play, sound: { keyTrigger, url, keyCode } }) => {
   },[] )
 
   return (
-    <div id='wrapper'>
+    
     <button className="drum-pad" onClick={() => play(keyTrigger)} >
       <div id="display">
         <audio id={keyTrigger} className="clip" src={url} />
         {keyTrigger}
       </div>
       </button>
-    </div>
+    
   );
 };
-const Keyboard = ({ play , sounds}) => {
-  // <div className='keyboard'>
-   return sounds.map((sound) => <KeyboardKey play={play} sound={sound} />)
-  // </div>
-}
+const Keyboard = ({ play , sounds}) => (
+   <div className='keyboard'>
+   {sounds.map((sound) => <KeyboardKey play={play} sound={sound} />)}
+ </div>
+)
 
 const DrumControls = ({ secondGroup }) => (
-  <div id='wrapper'>
+  
   <div className="controle">
     <button onClick={secondGroup}> Change Sound</button>
     </div>
-  </div>
+  
 )
 
 function App() {
@@ -183,7 +183,7 @@ function App() {
       }
   }
   return (
-    <div className="App" id="drum-machine">
+    <div className="wrapper" id="drum-machine">
       <Keyboard play={play} sounds={sounds} />
       <DrumControls secondGroup={secondGroup} />
     </div>
