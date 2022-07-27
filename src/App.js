@@ -158,7 +158,7 @@ const Keyboard = ({ play , sounds}) => (
 const DrumControls = ({ secondGroup }) => (
   
   <div className="controle">
-    <button onClick={secondGroup}> Change Sound</button>
+    <button onClick={secondGroup} id='switch'>Change Sound</button>
     </div>
   
 )
