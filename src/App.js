@@ -140,11 +140,9 @@ const KeyboardKey = ({ play, sound: { id, keyTrigger, url, keyCode } }) => {
 
   return (
     
-    <button className="drum-pad" onClick={() => play(keyTrigger, id)} >
-      <div id="display">
+    <button id={keyCode} className="drum-pad" onClick={() => play(keyTrigger, id)} >
         <audio id={keyTrigger} className="clip" src={url} />
         {keyTrigger}
-      </div>
       </button>
     
   );
@@ -171,8 +169,11 @@ function App() {
   }
   const DrumControls = ({ stop, name, power, volume, handleVolumeChange, secondGroup }) => (
     <div className="controle">
-      <button onClick={stop}>Power {power ? "OFF" : "ON" }</button>
-    <input
+      <button onClick={stop} id='power'>Power {power ? "OFF" : "ON" }</button>
+    <h2 id='volume'>Volume: {Math.round(volume * 100)}%</h2>
+     
+      <input
+      id='scroll'
       max="1"
       min="0"
       step={0.01}
@@ -180,8 +181,7 @@ function App() {
       value={volume}
       onChange={handleVolumeChange}
     />
-    <h2 id='volume'>Volume: {Math.round(volume * 100)}%</h2>
-    <h2 id="display">{name}</h2>
+        <h2 id="display">{name}</h2>
     <button onClick={secondGroup} id="switch">
       Sound Bank
     </button>

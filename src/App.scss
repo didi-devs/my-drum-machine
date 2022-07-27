@@ -18,16 +18,25 @@
   // margin: 10px;
 }
 
-.keyboard .drum-pad {
+ .drum-pad {
   width: 100%;
   height: 80px;
-  outline:none;
+  outline: none;
   font-size: 28px;
-  border-radius: 10px;
+  border-radius: 1px;
   background-color: #a1a3a5;
   transition: all -3s ease-in-out; 
   margin: 10px;
+  box-shadow: inset;
+
+  
 }
+
+.drum-pad:hover{
+    background-color: rgb(59, 61, 65);
+    color: white;
+    cursor:pointer;
+  }
 
 .wrapper {
   width: auto;
@@ -54,11 +63,16 @@
   background-color: #bcbbc5;
   color: black;
   font-size: 18px;
-  padding: 5px;
+  padding: 10px;
   margin: 12px;
   font-family: 'Trebuchet MS'; 
 }
 
+
+#scroll {
+  padding: 10px;
+  margin: 2px;
+}
 @media(min-width: 768px) {
   .wrapper {
     width: 682px;
@@ -80,11 +94,18 @@
   padding-left: 20px;
 }
 
- #switch {
-  background-color: #030135;
+.controle > button,
+.controle > input,
+.controle > h2{
+  margin-bottom: 10px;
+}
+
+
+#switch, #power{
+  background-color: #02011c;
   font-size: 20px;
   border-radius: 10px;
   color: rgb(225, 206, 206);
-  padding: 5px;
+  padding: 10px;
   margin: 15px;
 }
