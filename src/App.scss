@@ -50,6 +50,15 @@
    justify-content: center;
 }
 
+#volume {
+  background-color: #bcbbc5;
+  color: black;
+  font-size: 18px;
+  padding: 5px;
+  margin: 12px;
+  font-family: 'Trebuchet MS'; 
+}
+
 @media(min-width: 768px) {
   .wrapper {
     width: 682px;
@@ -74,7 +83,7 @@
  #switch {
   background-color: #030135;
   font-size: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   color: rgb(225, 206, 206);
   padding: 5px;
   margin: 15px;

@@ -155,29 +155,32 @@ const Keyboard = ({ play , sounds}) => (
  </div>
 )
 
-const DrumControls = ({ name,volume, handleVolumeChange, secondGroup }) => (
-  
-  <div className="controle">
-    <h2>Volume: {Math.round(volume * 100)}%</h2>
-    <input
-      max='1'
-      min='0'
-      step={0.01}
-      type="range"
-      value={volume}
-      onChange={handleVolumeChange}
-    />
-    <h2 id='display'>{name}</h2>
-    <button onClick={secondGroup} id='switch'>Change Sound</button>
-    </div>
-  
-)
 
 function App() {
   const [volume, setVolume] = React.useState(1);
   const [soundsName, setSoundsName] = React.useState("");
   const [soundType, setSoundType] = React.useState("heaterKit");
   const [sounds, setSounds] = React.useState(soundGroup[soundType])
+
+
+  const DrumControls = ({ name, volume, handleVolumeChange, secondGroup }) => (
+  <div className="controle">
+    <input
+      max="1"
+      min="0"
+      step={0.01}
+      type="range"
+      value={volume}
+      onChange={handleVolumeChange}
+    />
+    <h2 id='volume'>Volume: {Math.round(volume * 100)}%</h2>
+    <h2 id="display">{name}</h2>
+    <button onClick={secondGroup} id="switch">
+      Sound Bank
+    </button>
+  </div>
+);
+
 
   const handleVolumeChange = (event) => {
     setVolume(event.target.value)
@@ -211,15 +214,16 @@ function App() {
     }
     
   return (
-    <div className='body'>
+    <div className="body">
       {setKeyVolume()}
-     <div className="wrapper" id="drum-machine">
-      <Keyboard play={play} sounds={sounds} />
+      <div className="wrapper" id="drum-machine">
+        <Keyboard play={play} sounds={sounds} />
         <DrumControls
           volume={volume}
           handleVolumeChange={handleVolumeChange}
           name={soundsName || soundName[soundType]}
-          secondGroup={secondGroup} />
+          secondGroup={secondGroup}
+        />
       </div>
     </div>
   );
