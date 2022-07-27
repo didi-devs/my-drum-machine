@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/didi-devs/my-drum-machine.git/static/css/main.2a258e13.css",
+    "main.js": "/didi-devs/my-drum-machine.git/static/js/main.7c76e3b9.js",
+    "index.html": "/didi-devs/my-drum-machine.git/index.html",
+    "main.2a258e13.css.map": "/didi-devs/my-drum-machine.git/static/css/main.2a258e13.css.map",
+    "main.7c76e3b9.js.map": "/didi-devs/my-drum-machine.git/static/js/main.7c76e3b9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2a258e13.css",
+    "static/js/main.7c76e3b9.js"
+  ]
+}
