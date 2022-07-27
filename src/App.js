@@ -115,6 +115,15 @@ const bankTwo = [
   },
 ];
 
+const soundName = {
+  heaterKit: "Heater Kit",
+  smoothPianoKit: "Smooth Piano Kit"
+}
+
+const soundGroup = {
+  heaterKit: bankOne,
+  smoothPianoKit: bankTwo
+}
 
 const KeyboardKey = ({ play, sound: { keyTrigger, url, keyCode } }) => {
 
@@ -138,21 +147,37 @@ const KeyboardKey = ({ play, sound: { keyTrigger, url, keyCode } }) => {
     </button>
   );
 };
-const Keyboard = ({ play }) => {
-  return bankOne.map((sound) => <KeyboardKey play={play} sound={sound} />)
+const Keyboard = ({ play , sounds}) => {
+  return sounds.map((sound) => <KeyboardKey play={play} sound={sound} />)
 }
 
+const DrumControls = ({ secondGroup }) => {
+  <div className="controle">
+    <button onClick={secondGroup}> Change Sound</button>
+  </div>;
+};
+
 function App() {
+  const [soundType, setSoundType] = React.useState("heaterKit");
+  const [sounds, setSounds] = React.useState(soundGroup[setSoundType])
 
   const play = (keyTrigger) => {
     const audio = document.getElementById(keyTrigger)
     audio.currentTime = 0;
     audio.play()
   } 
-
+  
+  const secondGroup = () => {
+    if (soundType === "heaterKit") {
+      setSounds(soundGroup.smoothPianoKit)
+    } else {
+      setSounds(soundGroup.heaterKit)
+    }
+  }
   return (
     <div className="App" id="drum-machine">
-      <Keyboard play={play} />
+      <Keyboard play={play} sounds={sounds} />
+      <DrumControls secondGroup={secondGroup} />
     </div>
   );
 }
