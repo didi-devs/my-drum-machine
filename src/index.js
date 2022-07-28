@@ -4,20 +4,20 @@ import ReactDOM from 'react-dom';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { HashRouter } from "react-router-dom";
-
+import BrowserRouter from 'react-router-dom/BrowserRouter'
 // some code here
 
-return (
-  <HashRouter base="/">
-    <App />
-  </HashRouter>
-);
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  //import BrowserRouter from 'react-router-dom/BrowserRouter'
+
+(
+   <BrowserRouter basename={process.env.PUBLIC_URL}>
+     <App />
+   </BrowserRouter>
+),  
 );
 
 

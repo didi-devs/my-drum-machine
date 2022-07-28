@@ -232,6 +232,10 @@ function App() {
           handleVolumeChange={handleVolumeChange}
           name={soundsName || soundName[soundType]}
           secondGroup={secondGroup}
+
+          
+  
+
         />
       </div>
     </div>
