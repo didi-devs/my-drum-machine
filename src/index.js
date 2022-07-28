@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { HashRouter } from "react-router-dom";
-import BrowserRouter from 'react-router-dom/BrowserRouter'
+//import BrowserRouter from 'react-router-dom/BrowserRouter'
 // some code here
 
 
@@ -14,9 +14,9 @@ root.render(
   //import BrowserRouter from 'react-router-dom/BrowserRouter'
 
 (
-   <BrowserRouter basename={process.env.PUBLIC_URL}>
-     <App />
-   </BrowserRouter>
+    <HashRouter base="/">
+        <App />
+    </HashRouter>
 ),  
 );
 
